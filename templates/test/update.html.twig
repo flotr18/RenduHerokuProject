@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{path('test')}}"><button class="btn btn-info">HOME</button></a>
+
+    <div class="container--fluid text-center">
+        <h3>UPDATE EMPLOYEE</h3>
+        <p>Enter the name and family name of the employees</p>
+
+        {{ form_start(formUpdate) }}
+        {{ form_end(formUpdate) }}
+    </div>
+
+{% endblock body %}

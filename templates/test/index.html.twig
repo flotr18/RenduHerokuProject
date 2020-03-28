@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Heroku App{% endblock %}
+
+
+
+{% block body %}
+    <div class="container-fluid text-center">
+
+        <h1>DELOS INCORPORATED</h1>
+
+        <h3 class="title">EMPLOYEES LIST</h3>
+        <p>See below, the full list of delos' employees. You can add, update or delete as many as you want from the database</p>
+        <div class="table-responsive">
+            <table class="table table-striped  mx-auto w-auto">
+                <tr>
+                    <th>FIRSTNAME</th>
+                    <th>LASTNAME</th>
+                </tr>
+
+                <tr>
+                    {% for employee in employees %}
+                    <td>{{ employee.name }}</td>
+                    <td> {{  employee.familyname }}</td>
+                    <td><a href="{{path('delete', {id: employee.id})}}"><button class="btn btn-danger">Delete</button></a></td>
+                    <td><a href="{{path('update', {id: employee.id})}}"><button class="btn btn-secondary">Update</button></a></td>
+                </tr>
+
+                {% endfor %}
+            </table>
+
+        </div>
+
+        <h3>ADD AN EMPLOYEE</h3>
+        <p>Enter the name and family name of the employees</p>
+
+        {{ form_start(formEmployee) }}
+        {{ form_end(formEmployee) }}
+
+
+</div>
+
+    <style>
+
+    table {
+        font-weight: bold;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+{% endblock %}
